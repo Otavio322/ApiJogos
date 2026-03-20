@@ -1,70 +1,53 @@
+const campoBusca = document.getElementById("campoBusca");
 const botao = document.getElementById("btnPesquisar");
-const input = document.getElementById("campoBusca");
+const botaoRandom = document.getElementById("btnRandom");
 const resultados = document.getElementById("resultados");
 
-const jogosFixos = document.querySelectorAll(".jogo");
 
-botao.onclick = function () {
+botao.addEventListener("click", async () => {
+    const busca = campoBusca.value.trim();
 
-    const busca = input.value.toLowerCase();
+    if (busca === "") {
+        resultados.innerHTML = "Digite o nome de uma carta";
+        return;
+    }
 
-    fetch("https://api.sampleapis.com/playstation/games")
-        .then(res => res.json())
-        .then(jogos => {
+    try {
+        const resposta = await fetch(`https://api.scryfall.com/cards/search?q=${busca}`);
+        const dados = await resposta.json();
 
-            const filtrados = jogos.filter(jogo =>
-                jogo.name.toLowerCase().includes(busca)
-            );
-
-            resultados.innerHTML = "";
-
-            
-            if (filtrados.length > 0) {
-
-                jogosFixos.forEach(j => j.style.display = "none");
-
-                filtrados.forEach(jogo => {
-                    resultados.innerHTML += `
-                        <div class="jogo">
-                            <img src="${jogo.image || 'https://via.placeholder.com/300'}" class="imagem">
-                            <h2>${jogo.name}</h2>
-                            <ul>
-                                <li>Lançamento: ${jogo.releaseDate || "Não informado"}</li>
-                            </ul>
-                        </div>
-                    `;
-                });
-
-            } else {
-                
-
-                resultados.innerHTML = "<p>Mostrando jogos da sua lista</p>";
-
-                let encontrou = false;
-
-                jogosFixos.forEach(jogo => {
-
-                    const nome = jogo.querySelector("h2").textContent.toLowerCase();
-
-                    if (nome.includes(busca)) {
-                        jogo.style.display = "block";
-                        encontrou = true;
-                    } else {
-                        jogo.style.display = "none";
-                    }
-                });
-
-                if (!encontrou) {
-                    resultados.innerHTML = "<p>Nenhum jogo encontrado</p>";
-                }
-            }
-        });
-};
-
-
-input.addEventListener("input", () => {
-    if (input.value === "") {
         resultados.innerHTML = "";
-        jogosFixos.forEach(j => j.style.display = "block");
+
+        dados.data.forEach(carta => {
+            resultados.innerHTML += `
+                <div style="margin-bottom:20px;">
+                    <h3>${carta.name}</h3>
+                    ${carta.image_uris ? `<img src="${carta.image_uris.normal}">` : ""}
+                </div>
+            `;
+        });
+
+    } catch (erro) {
+        resultados.innerHTML = "Erro ao buscar cartas";
+        console.error(erro);
+    }
+});
+
+
+
+botaoRandom.addEventListener("click", async () => {
+    try {
+        const resposta = await fetch(`https://api.scryfall.com/cards/random`);
+        const carta = await resposta.json();
+
+        resultados.innerHTML = `
+            <div style="margin-bottom:20px;">
+                <h2>${carta.name}</h2>
+                ${carta.image_uris ? `<img src="${carta.image_uris.normal}">` : ""}
+            </div>
+        `;
+    } catch (erro) {
+        resultados.innerHTML = "Erro ao buscar carta aleatória";
+        console.error(erro);
     }
 });
