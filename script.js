@@ -52,10 +52,3 @@ botaoRandom.addEventListener("click", async () => {
     }
 });
 
-
-console.log("Script principal carregado!");
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/serviceworker.js")
-    .then(() => console.log("Service Worker registrado!"))
-    .catch(err => console.error("Erro ao registrar SW:", err));
-}
