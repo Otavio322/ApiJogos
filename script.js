@@ -54,4 +54,6 @@ botaoRandom.addEventListener("click", async () => {
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("serviceWorker.js")
+    .then(() => console.log("Service Worker registrado"))
+    .catch(err => console.log("Erro:", err));
 }
