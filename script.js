@@ -42,8 +42,9 @@ botao.addEventListener("click", async () => {
 
 botaoRandom.addEventListener("click", async () => {
 
-            navigator.vibrate(500);
-   
+    if (navigator.vibrate) {
+        navigator.vibrate(1000);
+    }
 
     try {
         const resposta = await fetch(`https://api.scryfall.com/cards/random`);
