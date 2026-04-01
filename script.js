@@ -43,7 +43,7 @@ botao.addEventListener("click", async () => {
 botaoRandom.addEventListener("click", async () => {
 
      if (navigator.vibrate) {
-        navigator.vibrate(200);
+        navigator.vibrate(500);
     }
 
     try {
