@@ -68,6 +68,3 @@ if ("serviceWorker" in navigator) {
     .catch(err => console.log("Erro:", err));
 }
 
-document.body.addEventListener("click", () => {
-    navigator.vibrate(300);
-});
