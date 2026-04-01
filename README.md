@@ -10,6 +10,8 @@ Projeto web simples que permite buscar cartas de Magic: The Gathering usando a A
 * 🎲 Gerar carta aleatória
 * 🖼️ Exibir imagem da carta
 * 📱 Layout responsivo (mobile e desktop)
+* 📲 Instalável como aplicativo (PWA)
+* 📳 Vibração ao clicar nos botões (recurso de hardware)
 
 ---
 
@@ -19,6 +21,7 @@ Projeto web simples que permite buscar cartas de Magic: The Gathering usando a A
 * CSS
 * JavaScript
 * API Scryfall
+* Progressive Web App (PWA)
 
 ---
 
@@ -27,70 +30,116 @@ Projeto web simples que permite buscar cartas de Magic: The Gathering usando a A
 --> HTML
 
 * Estrutura básica HTML:
-  [https://www.w3schools.com/html/html_basic.asp](https://www.w3schools.com/html/html_basic.asp)
+  https://www.w3schools.com/html/html_basic.asp
 
 * Input (campo de texto):
-  [https://www.w3schools.com/html/html_form_input_types.asp](https://www.w3schools.com/html/html_form_input_types.asp)
+  https://www.w3schools.com/html/html_form_input_types.asp
 
 * Botões:
-  [https://www.w3schools.com/tags/tag_button.asp](https://www.w3schools.com/tags/tag_button.asp)
+  https://www.w3schools.com/tags/tag_button.asp
 
 * Div (containers):
-  [https://www.w3schools.com/html/html_div.asp](https://www.w3schools.com/html/html_div.asp)
+  https://www.w3schools.com/html/html_div.asp
 
 ---
 
 --> CSS
 
 * CSS básico:
-  [https://www.w3schools.com/css/](https://www.w3schools.com/css/)
+  https://www.w3schools.com/css/
 
 * Flexbox (centralização):
-  [https://www.w3schools.com/css/css3_flexbox.asp](https://www.w3schools.com/css/css3_flexbox.asp)
+  https://www.w3schools.com/css/css3_flexbox.asp
 
 * Responsividade (Media Queries):
-  [https://www.w3schools.com/css/css_rwd_mediaqueries.asp](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)
+  https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 
 * Background image:
-  [https://www.w3schools.com/css/css_background_image.asp](https://www.w3schools.com/css/css_background_image.asp)
+  https://www.w3schools.com/css/css_background_image.asp
 
 * Centralização de elementos:
-  [https://www.w3schools.com/css/css_align.asp](https://www.w3schools.com/css/css_align.asp)
+  https://www.w3schools.com/css/css_align.asp
 
 * Box shadow (sombra):
-  [https://www.w3schools.com/css/css3_shadows.asp](https://www.w3schools.com/css/css3_shadows.asp)
+  https://www.w3schools.com/css/css3_shadows.asp
 
 ---
 
 --> JavaScript
 
 * JavaScript básico:
-  [https://www.w3schools.com/js/](https://www.w3schools.com/js/)
+  https://www.w3schools.com/js/
 
 * Manipulação do DOM:
-  [https://www.w3schools.com/js/js_htmldom.asp](https://www.w3schools.com/js/js_htmldom.asp)
+  https://www.w3schools.com/js/js_htmldom.asp
 
 * getElementById:
-  [https://www.w3schools.com/jsref/met_document_getelementbyid.asp](https://www.w3schools.com/jsref/met_document_getelementbyid.asp)
+  https://www.w3schools.com/jsref/met_document_getelementbyid.asp
 
 * addEventListener:
-  [https://www.w3schools.com/jsref/met_element_addeventlistener.asp](https://www.w3schools.com/jsref/met_element_addeventlistener.asp)
+  https://www.w3schools.com/jsref/met_element_addeventlistener.asp
 
 * Fetch API (requisições):
-  [https://www.w3schools.com/js/js_api_fetch.asp](https://www.w3schools.com/js/js_api_fetch.asp)
+  https://www.w3schools.com/js/js_api_fetch.asp
 
 * Async/Await:
-  [https://www.w3schools.com/js/js_async.asp](https://www.w3schools.com/js/js_async.asp)
+  https://www.w3schools.com/js/js_async.asp
 
 * JSON:
-  [https://www.w3schools.com/js/js_json.asp](https://www.w3schools.com/js/js_json.asp)
+  https://www.w3schools.com/js/js_json.asp
+
+---
+
+--> Progressive Web App (PWA)
+
+Este projeto foi transformado em um **PWA**, permitindo instalar o site como aplicativo no celular ou computador.
+
+Referências:
+
+* Progressive Web Apps:
+  https://www.w3schools.com/whatis/whatis_progressive_web_apps.asp
+
+* Web App Manifest:
+  https://www.w3schools.com/whatis/whatis_webmanifest.asp
+
+* Service Workers:
+  https://www.w3schools.com/js/js_api_service_worker.asp
+
+* Cache API:
+  https://www.w3schools.com/js/js_api_cache.asp
+
+---
+
+--> Recursos de Hardware
+
+O projeto utiliza **vibração do dispositivo** ao clicar nos botões.
+
+Referência:
+
+* Vibration API:
+  https://www.w3schools.com/jsref/met_navigator_vibrate.asp
+
+---
+
+--> Performance
+
+O projeto foi analisado utilizando **Google Lighthouse** para melhorar:
+
+* Performance
+* Acessibilidade
+* Boas práticas
+* Compatibilidade PWA
+
+Referência:
+
+https://developer.chrome.com/docs/lighthouse/
 
 ---
 
 --> API utilizada
 
 * Scryfall API:
-  [https://scryfall.com/docs/api](https://scryfall.com/docs/api)
+  https://scryfall.com/docs/api
 
 ---
 
@@ -101,8 +150,14 @@ Projeto web simples que permite buscar cartas de Magic: The Gathering usando a A
 ├── index.html
 ├── style.css
 ├── script.js
+├── manifest.json
+├── serviceWorker.js
 └── imagens/
-    └── background.png
+    ├── background.png
+    ├── icon-192.png
+    ├── icon-512.png
+    ├── screenshot-desktop.png
+    └── screenshot-mobile.png
 ```
 
 ---
@@ -116,7 +171,11 @@ Projeto web simples que permite buscar cartas de Magic: The Gathering usando a A
 
 --> Deploy
 
-Este projeto pode ser publicado usando GitHub Pages.
+Este projeto foi publicado utilizando **GitHub Pages**.
+
+Exemplo de acesso:
+
+https://otavio322.github.io/ApiJogos/
 
 ---
 
@@ -125,6 +184,7 @@ Este projeto pode ser publicado usando GitHub Pages.
 * Melhorar layout das cartas
 * Adicionar mais informações das cartas
 * Criar sistema de favoritos
+* Adicionar cache offline das cartas
 
 ---
 

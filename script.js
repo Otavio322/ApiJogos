@@ -5,6 +5,11 @@ const resultados = document.getElementById("resultados");
 
 
 botao.addEventListener("click", async () => {
+
+
+    if (navigator.vibrate) {
+        navigator.vibrate(100);
+         }
     const busca = campoBusca.value.trim();
 
     if (busca === "") {
@@ -36,6 +41,11 @@ botao.addEventListener("click", async () => {
 
 
 botaoRandom.addEventListener("click", async () => {
+
+     if (navigator.vibrate) {
+        navigator.vibrate(200);
+    }
+
     try {
         const resposta = await fetch(`https://api.scryfall.com/cards/random`);
         const carta = await resposta.json();
